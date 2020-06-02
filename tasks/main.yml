@@ -4,6 +4,8 @@
 pre_tasks:
  - name: Install python2 
    raw: bash -c "test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)"
+   register: output
+   changed_when: output.stdout != ""
    
 tasks:
  - name: Iptables - allow all TCP IN on port 6688 for CHAINLINK
