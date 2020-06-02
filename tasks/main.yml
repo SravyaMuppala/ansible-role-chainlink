@@ -4,9 +4,7 @@
 pre_tasks:
  - name: Install python2 
    raw: bash -c "test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)"
-   register: output
-   changed_when: output.stdout != ""
-
+   
 tasks:
  - name: Iptables - allow all TCP IN on port 6688 for CHAINLINK
    iptables:
@@ -223,4 +221,3 @@ tasks:
     GOPATH: '/home/vagrant/go'
     PATH: '/home/vagrant/bin:/home/vagrant/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/lib/go-1.9/bin:/home/vagrant/go:/home/vagrant/go/bin:/snap/bin'
    become: true
-   
